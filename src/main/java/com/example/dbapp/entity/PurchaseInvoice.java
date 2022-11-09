@@ -1,5 +1,6 @@
 package com.example.dbapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -19,6 +20,7 @@ public class PurchaseInvoice {
     @Column(name = "purchase_invoice_id", nullable = false)
     private Long purchaseInvoiceId;
 
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private LocalDateTime dateTime;
 
     @OneToOne
@@ -37,7 +39,11 @@ public class PurchaseInvoice {
     @JoinColumn(name = "manager_id")
     private Manager manager;
 
-
-
-
+    public PurchaseInvoice(LocalDateTime dateTime, Warehouse warehouse, Supplier supplier, Product product, Manager manager) {
+        this.dateTime = dateTime;
+        this.warehouse = warehouse;
+        this.supplier = supplier;
+        this.product = product;
+        this.manager = manager;
+    }
 }

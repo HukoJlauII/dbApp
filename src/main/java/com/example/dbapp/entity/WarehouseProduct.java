@@ -25,4 +25,9 @@ public class WarehouseProduct {
     @JoinColumn(name = "warehouse_id")
     private Warehouse warehouse;
 
+    public WarehouseProduct(int quantity, Product product, Warehouse warehouse) {
+        this.quantity = quantity;
+        this.product = product;
+        this.warehouse = warehouse;
+    }
 }

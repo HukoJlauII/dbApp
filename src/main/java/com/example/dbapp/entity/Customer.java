@@ -26,4 +26,7 @@ public class Customer {
 
     private String city;
 
+
+
+
 }
